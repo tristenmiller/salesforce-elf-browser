@@ -35,6 +35,8 @@ gem 'sdoc', '>= 0.4.0', group: :doc
 # Use Puma as the app server
 gem 'puma', '3.11.3'
 
+gem 'scout_apm'
+
 # 3rd Party Services
 gem 'omniauth-salesforce'
 gem 'databasedotcom'

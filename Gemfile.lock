@@ -60,6 +60,7 @@ GEM
       minitest (>= 5.1)
       tzinfo (~> 2.0)
       zeitwerk (~> 2.3)
+    ast (2.4.2)
     autoprefixer-rails (10.4.7.0)
       execjs (~> 2)
     bindex (0.8.1)
@@ -154,6 +155,8 @@ GEM
     omniauth-salesforce (1.0.5)
       omniauth (~> 1.0)
       omniauth-oauth2 (~> 1.0)
+    parser (3.1.2.1)
+      ast (~> 2.4.1)
     psych (4.0.4)
       stringio
     puma (3.11.3)
@@ -220,6 +223,8 @@ GEM
       sprockets (> 3.0)
       sprockets-rails
       tilt
+    scout_apm (5.3.1)
+      parser
     sdoc (2.4.0)
       rdoc (>= 5.0)
     sexp_processor (4.16.1)
@@ -275,6 +280,7 @@ DEPENDENCIES
   rails (~> 6.1.6)
   rspec-rails (>= 3.0)
   sass-rails (>= 5.0)
+  scout_apm
   sdoc (>= 0.4.0)
   spring
   turbolinks
