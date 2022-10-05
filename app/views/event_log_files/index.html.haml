@@ -88,9 +88,9 @@
           %td
             = log_file.EventType
           %td
-            = log_file.LogDate.strftime("%Y-%m-%d")
+            = Date.parse(log_file.LogDate).strftime("%Y-%m-%d")
           %td
-            = log_file.LogDate.strftime("%H")
+            = Date.parse(log_file.LogDate).strftime("%H")
           %td.text-right
             = number_with_delimiter(log_file.LogFileLength)
           - if @has_one_hr_elf

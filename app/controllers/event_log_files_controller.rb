@@ -3,7 +3,7 @@ class EventLogFilesController < ApplicationController
 
   ALL_EVENTS_TYPE = "All"
 
-  before_action :setup_databasedotcom_client
+  before_action :setup_restforce_client
 
   def index
     redirect_to root_path unless logged_in?
@@ -188,7 +188,7 @@ class EventLogFilesController < ApplicationController
   end
 
   def load_and_cache_elf_metadata
-    fields = @client.describe_sobject("EventLogFile")["fields"]
+    fields = @client.describe("EventLogFile")["fields"]
     session[:event_types] = get_event_types(fields)
     session[:has_one_hr_elf] = one_hour_elf?(fields)
   end

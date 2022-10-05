@@ -11,6 +11,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'haml-rails', '>= 0.9'
 
 # UI related
+gem 'jquery-rails'
 gem 'bootstrap-sass', '>= 3.3.4'
 gem 'momentjs-rails'
 gem 'bootstrap-daterangepicker-rails'

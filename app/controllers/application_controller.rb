@@ -17,12 +17,11 @@ class ApplicationController < ActionController::Base
     session[:username]
   end
 
-  def setup_databasedotcom_client
-    @client = Databasedotcom::Client.new
-    @client.version = SALESFORCE_API_VERSION
+  def setup_restforce_client
     @instance_url = session[:instance_url]
     @token = session[:token]
-    @client.authenticate token: @token, instance_url: @instance_url
+    @client = Restforce.new(oauth_token: @token,
+      instance_url: @instance_url, api_version: SALESFORCE_API_VERSION)
   end
 
 end

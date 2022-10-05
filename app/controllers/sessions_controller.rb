@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
 
     session[:username] = auth_hash["extra"]["username"]
 
-    setup_databasedotcom_client
+    setup_restforce_client
 
     # Check if user has access to Event Log Files. If not logout and notify the user.
     if @client.list_sobjects.include? "EventLogFile"
