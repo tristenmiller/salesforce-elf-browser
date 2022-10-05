@@ -90,7 +90,7 @@
           %td
             = Date.parse(log_file.LogDate).strftime("%Y-%m-%d")
           %td
-            = Date.parse(log_file.LogDate).strftime("%H")
+            = DateTime.parse(log_file.LogDate).strftime("%H")
           %td.text-right
             = number_with_delimiter(log_file.LogFileLength)
           - if @has_one_hr_elf
