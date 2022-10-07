@@ -119,22 +119,34 @@ class EventLogFilesController < ApplicationController
         response.headers['Content-Type'] = 'text/csv'
         response.headers['Content-Disposition'] = "attachment; filename=\"#{@elf_info.LogDate.to_date}_#{@elf_info.EventType}.csv\""
 
-        begin
-          @client.http_streaming_get(@elf_info.LogFile, response.stream)
-        rescue Databasedotcom::SalesForceError => e
-          response.headers.delete('Content-Type')
-          response.headers.delete('Content-Disposition')
-          @error_message = e.message
-          render 'event_log_files/error', status: :bad_request
-        else
-          response.stream.close
-        end
+        download_file(@elf_info.LogFile, response.stream)
         return
       end
     end
   end
 
   private
+
+  def download_file(path, stream)
+    connection = Net::HTTP.new(session[:instance_url], 443)
+    connection.use_ssl = true
+    print path
+    req = Net::HTTP::Get.new(path, {"Authorization" => "OAuth #{@client.options[:oauth_token]}"})
+    connection.request(req) do |response|
+      if response.is_a?(Net::HTTPSuccess)
+        response.read_body do |chunk|
+          stream.write chunk
+        end
+      else
+        response.headers.delete('Content-Type')
+        response.headers.delete('Content-Disposition')
+        @error_message = e.message
+        render 'event_log_files/error', status: :bad_request
+      end
+    end
+    response.stream.close
+  end
+
   # return [start_date, end_date] from a query string (e.g. "2015-01-01 to 2015-01-02"). Returned dates are of Date class.
   def date_range_parser(query_string)
     begin
