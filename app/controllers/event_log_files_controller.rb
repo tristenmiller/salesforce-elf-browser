@@ -79,30 +79,22 @@ class EventLogFilesController < ApplicationController
       else
         @log_files = @client.query("#{select_clause} FROM EventLogFile WHERE LogDate >= #{date_to_time(@start_date)} AND LogDate < #{date_to_time(@end_date + 1)} AND EventType = '#{@event_type}' #{where_clause_addition}#{order_by_clause}")
       end
-    rescue Databasedotcom::SalesForceError => e
+    rescue Restforce::UnauthorizedError => e
       # Session has expired. Force user logout.
-      if e.message == "Session expired or invalid"
-        redirect_to logout_path
-      else
-        raise e
-      end
+      redirect_to logout_path
     end
   end
 
   def show
     begin
       @elf_info = @client.find("EventLogFile", params[:id])
-    rescue Databasedotcom::SalesForceError => e
-      if e.message == "Session expired or invalid"
+    rescue Restforce::UnauthorizedError => e
         redirect_to logout_path
         return
-      elsif e.message.start_with?("Provided external ID field does not exist or is not accessible")
+    rescue Restforce::NotFoundError => e
         @error_message = "Event log file with ID #{params[:id]} does not exist or is not accessible"
         render 'event_log_files/error', status: :not_found
         return
-      else
-        raise e
-      end
     end
 
     if (params[:script])
