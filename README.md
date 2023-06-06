@@ -4,9 +4,9 @@ A Salesforce connected web app to access and download Event Log Files. **Access 
 
 ## Overview
 
-[Salesforce event log file](https://www.salesforce.com/us/developer/docs/api_rest/Content/using_resources_event_log_files.htm) is a file-based API to get your Salesforce organization's application log data. These files provide visibility into your org for security auditing, application performance, and feature adoption. 
+[Salesforce event log file](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/using_resources_event_log_files.htm) is a file-based API to get your Salesforce organization's application log data. These files provide visibility into your org for security auditing, application performance, and feature adoption. 
 
-Event log file browser is a Salesforce connected app built with Ruby on Rails to help you access and download event log files. The downloads are streamed to the web client via the Rails application using Rail's `ActionController::Streaming`.
+Event log file browser is a Salesforce connected app built with Ruby on Rails to help you access and download event log files. The downloads are streamed to the web client via the Rails application.
 
 ## Hosting your own instance of Salesforce Event Log File Browser
 
@@ -44,18 +44,18 @@ If using Rails, once the environment variables are setup, you can start the appl
 If using Docker, the environment variables can be added to a `.env` file or passed through to the container and started with `docker-compose up`
 
 ## Issues
-Report bugs and issues [here](https://github.com/abisek/salesforce-elf-browser/issues).
+Report bugs and issues [here](https://github.com/tristenmiller/salesforce-elf-browser/issues).
 
 ## ELF Browser Security
 The ELF browser is a stateless application running on Heroku, an official Salesforce property which is using https. The Salesforce browser is always deployed from code which is checked into the public open source repository, allowing anybody to audit to security of the applications code. At this time, the only people who have commit privileges which allow merging of pull requests to the open source repository are official Salesforce employees. The only people that can deploy the ELF browser are official Salesforce employees.
 
-The ELF browser application doesn’t store any customer data including logins or oauth credentials. The application does use Google Analytics for tracking application user metrics such as browser types, and locations.
+The ELF browser application doesn’t store any customer data including logins or oauth credentials. The application does use Google Analytics for tracking application user metrics such as browser types, and locations. It also uses ScoutAPM for performance tracking.
 
 The ELF browser uses oauth for the login flow which is done through Salesforce, so when the user logs in they are using an official Salesforce login. When a user first authorizes the Salesforce browser to do operations (query and retrieve event log files) on the users behalf a connected app is installed in the users org and can be uninstalled or locked down by the orgs administrator. The org that contains the connected app is also maintained by an official Salesforce employee.
 
 We maintain a secret key within the Heroku deployment which is rotated periodically, which allows us to invalidate all logins and reinitiating the login flow again.
 
-Log data is not stored in Heroku. The only data which is stored are generic user metrics via Google Analytics. All logins and authorizations are done through Salesforce allowing the user full control of the authorizations so it’s no different as far as security is concerned, than logging into the official Salesforce front pages (https://login.salesforce.com for production or https://test.salesforce.com for sandbox). The app can also be deployed by a customer using the instructions at https://github.com/abisek/salesforce-elf-browser in their own Heroku instance and utilizing their own Developer Edition org to deploy a connected app in which to control oauth scopes.
+Log data is not stored in Heroku. The only data which is stored are generic user metrics via Google Analytics. All logins and authorizations are done through Salesforce allowing the user full control of the authorizations so it’s no different as far as security is concerned, than logging into the official Salesforce front pages (https://login.salesforce.com for production or https://test.salesforce.com for sandbox). The app can also be deployed by a customer using the instructions at https://github.com/tristenmiller/salesforce-elf-browser in their own Heroku instance and utilizing their own Developer Edition org to deploy a connected app in which to control oauth scopes.
 
 ## Safe Harbor
 Safe harbor, the Salesforce ELF browser is not an official Salesforce product we make no guarantees on the safety, security, or maintenance of the project or the deployed app and customers should not base their purchasing decision on the current feature set or future roadmap of this application.
@@ -63,11 +63,10 @@ Safe harbor, the Salesforce ELF browser is not an official Salesforce product we
 ## Contributors
 (Listed in no particular order)
 
-* [Abhishek Sreenivasa](https://github.com/abisek) - developer and maintainer
+* [Tristen Miller](https://github.com/tristenmiller) - current developer and maintainer
+* [Abhishek Sreenivasa](https://github.com/abisek) - original developer
 * [Adam Torman](https://github.com/atorman) - QA and product management
 * Soumen Bandyopadhyay - QA
 * Ivan Weiss - QA
 * Justine Heritage - documentation
 * Aakash Pradeep - QA
-
-
