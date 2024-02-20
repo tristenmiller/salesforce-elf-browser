@@ -7,7 +7,7 @@
     = csrf_meta_tags
     = render 'layouts/google_analytics'
   %body
-    .navbar.navbar-inverse.navbar-static-top
+    .navbar.navbar-inverse.navbar-static-top{ style: 'background-color: black;' }
       .container
         .navbar-header
           %button.navbar-toggle{"data-target" => ".navbar-collapse", "data-toggle" => "collapse", type: "button"}
@@ -29,6 +29,14 @@
                     = link_to(logout_path) do
                       %span.glyphicon.glyphicon-log-out
                       %span Logout
+        .h4{ style: 'color: red;font-weight: bold;' }
+          ANNOUNCEMENT: This app will end-of-life after Summer ’24 (earliest July 2024). 
+          .br
+          Please migrate to the new 'Event Log File Browser' in Salesforce, or host this app yourself.
+        .link
+          = link_to("New Event Log File Browser (by Salesforce)", "https://help.salesforce.com/s/articleView?id=release-notes.rn_security_em_elf_browser.htm")
+        .div{ style: 'height: 10px;'}
+
     .container
       = yield
 
