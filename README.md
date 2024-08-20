@@ -1,11 +1,11 @@
 # Event Log File Browser
 
-A Salesforce connected web app to access and download Event Log Files. **Access it on [Heroku](https://salesforce-elf.herokuapp.com/).**
+A Salesforce connected web app to access and download Event Log Files. ~~Access it on [Heroku](https://salesforce-elf.herokuapp.com/).~~
 
-## END OF LIFE
-ANNOUNCEMENT: This app will no longer be hosted soon.
+## MIGRATE TO SALESFORCE ELF BROWSER
+ANNOUNCEMENT: This app will no longer be hosted.
 Please migrate to the new 'Event Log File Browser' in Salesforce, or host this app yourself.
-New Event Log File Browser (by Salesforce): https://help.salesforce.com/s/articleView?id=release-notes.rn_security_em_elf_browser.htm
+[New Event Log File Browser (by Salesforce)](https://help.salesforce.com/s/articleView?id=release-notes.rn_security_em_elf_browser.htm&release=250&type=5)
 
 ## Overview
 
