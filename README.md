@@ -2,6 +2,11 @@
 
 A Salesforce connected web app to access and download Event Log Files. **Access it on [Heroku](https://salesforce-elf.herokuapp.com/).**
 
+## END OF LIFE
+ANNOUNCEMENT: This app will no longer be hosted soon.
+Please migrate to the new 'Event Log File Browser' in Salesforce, or host this app yourself.
+New Event Log File Browser (by Salesforce): https://help.salesforce.com/s/articleView?id=release-notes.rn_security_em_elf_browser.htm
+
 ## Overview
 
 [Salesforce event log file](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/using_resources_event_log_files.htm) is a file-based API to get your Salesforce organization's application log data. These files provide visibility into your org for security auditing, application performance, and feature adoption. 
