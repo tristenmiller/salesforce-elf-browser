@@ -1,6 +1,6 @@
 # Event Log File Browser
 
-A Salesforce connected web app to access and download Event Log Files. **Access it on [Heroku](https://salesforce-elf.herokuapp.com/).**
+A Salesforce connected web app to access and download Event Log Files.
 
 ## Overview
 
