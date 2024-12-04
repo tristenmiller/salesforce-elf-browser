@@ -5,7 +5,7 @@ A Salesforce connected web app to access and download Event Log Files. ~~Access 
 ## MIGRATE TO SALESFORCE ELF BROWSER
 ANNOUNCEMENT: This app will no longer be hosted.
 Please migrate to the new 'Event Log File Browser' in Salesforce, or host this app yourself.
-[New Event Log File Browser (by Salesforce)](https://help.salesforce.com/s/articleView?id=release-notes.rn_security_em_elf_browser.htm&release=250&type=5)
+[New Event Log File Browser (by Salesforce)](https://help.salesforce.com/s/articleView?id=sf.real_time_em_elf_browser.htm)
 
 ## Overview
 
